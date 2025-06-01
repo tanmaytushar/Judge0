@@ -1,6 +1,6 @@
 # Online Judge
 
-A scalable and secure online judge, inspired by platforms like Codeforces and LeetCode. It allows users to submit code solutions, which are compiled and run inside isolated Docker containers. Outputs are compared against test cases to determine verdicts such as `Accepted`, `Wrong Answer`, or `Time Limit Exceeded`.
+An implementation of an online judge. It allows users to submit code solutions, which are compiled and run inside isolated Docker containers. Outputs are compared against test cases to determine verdicts such as `Accepted`, `Wrong Answer`, or `Time Limit Exceeded`.
 
 
 ---
