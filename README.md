@@ -4,7 +4,7 @@ A scalable and secure online judge, inspired by platforms like Codeforces and Le
 
 ---
 
-## 🚀 Features
+## Features
 
 - REST API to submit and query code submissions  
 - Secure Docker containers for sandboxed code execution  
@@ -29,7 +29,84 @@ A scalable and secure online judge, inspired by platforms like Codeforces and Le
 
 ---
 
-## 🔧 Setup Instructions
+## Setup Instructions
+
+Follow these steps to set up and run the Online Judge locally:
+### 1. Start Redis Server
+
+Make sure Redis is installed and running using Docker:
+
+```bash
+docker run -d --name redis -p 6379:6379 redis
+```
+
+### 2. Run the Go Server
+
+Start the judge server:
+
+```bash
+go run cmd/judge/main.go
+```
+
+The server will be available at `http://localhost:8080`
+
+### 3. Build Docker Images
+
+Build the Docker images that will compile and execute submitted code. All Docker images are stored in the `internal/docker/` directory.
+
+```bash
+# Navigate to the docker directory
+cd internal/docker/
+```
+
+### 4. Prepare and Submit Code
+
+#### Create a Submission Request
+
+Create a file named `submission.json` with the following structure:
+
+```json
+{
+  "id": "sub1",
+  "code": "",
+  "language": "cpp",
+  "problem_id": "1"
+}
+```
+
+#### Send the Submission
+
+Use curl to send the request to the `/submit` endpoint:
+
+```bash
+curl -X POST http://localhost:8080/submit \
+  -H "Content-Type: application/json" \
+  -d @submission.json
+```
+
+### 5. Add Test Cases
+
+Test cases should be organized in the following folder structure:
+
+```
+testcases/
+└── 1/
+    ├── input.txt
+    └── expected.txt
+```
+
+Replace `1` with the appropriate problem ID.
+
+
+## API Endpoints
+
+- `POST /submit` - Submit code for judgment
+
+
+
+
+
+
 
 
 
