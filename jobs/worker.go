@@ -5,8 +5,8 @@ import (
 	// "encoding/json"
 	"fmt"
 	"time"
-
 	"github.com/tanmaytushar/Judge0/internal/redis"
+	"github.com/tanmaytushar/Judge0/internal/utils"
 )
 
 func main(){
@@ -23,7 +23,14 @@ func main(){
 		}
 		if result != nil{
 			fmt.Println("Processing Submission:",result.ID)
-			// TODO : docker and judge logic here
+			// TODO : Judge Logic
+			err := utils.PrepareSubmissionFiles(result.ID, result.Code, result.ProblemID)
+			if err != nil {
+				fmt.Println("Failed to prepare submission files:", err)
+				continue
+			}
+			fmt.Println("Submission files prepared for:", result.ID)
+			// TODO : docker here
 		}
 	}
 }
