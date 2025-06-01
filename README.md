@@ -2,7 +2,12 @@
 
 A scalable and secure online judge, inspired by platforms like Codeforces and LeetCode. It allows users to submit code solutions, which are compiled and run inside isolated Docker containers. Outputs are compared against test cases to determine verdicts such as `Accepted`, `Wrong Answer`, or `Time Limit Exceeded`.
 
+
 ---
+
+## Architecture
+
+![Architecture](./internal/utils/Judge.png)
 
 ## Features
 
@@ -55,7 +60,7 @@ The server will be available at `http://localhost:8080`
 Build the Docker images that will compile and execute submitted code. All Docker images are stored in the `internal/docker/` directory.
 
 ```bash
-# Navigate to the docker directory
+
 cd internal/docker/
 ```
 
