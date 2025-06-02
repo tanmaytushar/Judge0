@@ -1,0 +1,6 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Default command to run Python script
+CMD bash -c "timeout 2s python3 /app/main.py < /app/input.txt > /app/output.txt"

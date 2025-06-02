@@ -1,0 +1,10 @@
+FROM gcc:latest
+
+# Install coreutils for timeout
+RUN apt-get update && apt-get install -y coreutils
+
+# Working directory
+WORKDIR /app
+
+# Default command to compile and run the C++ file
+CMD bash -c "g++ /app/main.cpp -o /app/a.out && timeout 2s /app/a.out < /app/input.txt > /app/output.txt"

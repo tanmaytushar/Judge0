@@ -1,0 +1,6 @@
+FROM openjdk:17-slim
+
+WORKDIR /app
+
+# Default command to compile and run Java file
+CMD bash -c "javac /app/Main.java && timeout 2s java -cp /app Main < /app/input.txt > /app/output.txt"

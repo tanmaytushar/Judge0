@@ -20,13 +20,13 @@ func StartWorker() {
 
 			log.Println("Processing Submission:", result.ID)
 
-			err = utils.PrepareSubmissionFiles(result.ID, result.Code, result.ProblemID)
+			err = utils.PrepareSubmissionFiles(result.ID, result.Code, result.ProblemID,result.Language)
 			if err != nil {
 				log.Println("Error preparing files:", err)
 				continue
 			}
 
-			err = docker.RunDockerJudge(result.ID)
+			err = docker.RunDockerJudge(result.ID,result.Language)
 			if err != nil {
 				log.Println("Docker execution error:", err)
 				continue
