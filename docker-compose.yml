@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  cpp-judge:
+    build:
+      context: .
+      dockerfile: internal/docker/Dockerfile.cpp
+    image: cpp-judge-image
+
+  java-judge:
+    build:
+      context: .
+      dockerfile: internal/docker/Dockerfile.java
+    image: java-judge-image
+
+  python-judge:
+    build:
+      context: .
+      dockerfile: internal/docker/Dockerfile.python
+    image: python-judge-image

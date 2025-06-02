@@ -64,6 +64,14 @@ Build the Docker images that will compile and execute submitted code. All Docker
 cd internal/docker/
 ```
 
+Build with 
+
+```bash
+
+docker-compose build
+```
+
+
 ### 4. Prepare and Submit Code
 
 #### Create a Submission Request
